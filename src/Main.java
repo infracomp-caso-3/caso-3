@@ -1,17 +1,16 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import java.util.Scanner;
+import decrypter.Decrypter;
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Intro with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner reqs = new Scanner(System.in);
+        System.out.println("Que algoritmo quieres utilizar? (SHA256/SHA512)");
+        String algorithm = reqs.nextLine();
 
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        System.out.println("Cuál sal vas a utilizar?");
+        String salt = reqs.nextLine();
 
-            // Press Mayús+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
+        System.out.println("Cuántos threads vas a utilizar?");
+        int threads = Integer.parseInt(reqs.nextLine());
+
     }
 }
