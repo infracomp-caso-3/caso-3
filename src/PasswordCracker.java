@@ -63,7 +63,7 @@ public class PasswordCracker {
         if (found) {
             return;
         }
-
+    
         if (prefix.length() == 7) {
             String fullPassword = prefix + salt;
             String fullHash = hash(fullPassword);
@@ -74,7 +74,7 @@ public class PasswordCracker {
             }
         } else {
             for (int i = start; i < end; i++) {
-                search(0, CHARSET.length, prefix + CHARSET[i]);
+                search(start, end, prefix + CHARSET[i]);
             }
         }
     }
