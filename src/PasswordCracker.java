@@ -66,21 +66,24 @@ public class PasswordCracker {
     
         // Agregar caracteres a la cadena prefix hasta que alcance una longitud de 7
         while (prefix.length() < 7) {
+            String fullPassword = prefix + salt;
+            String fullHash = hash(fullPassword);
+
             prefix += CHARSET[0];
-        }
-    
-        String fullPassword = prefix + salt;
-        String fullHash = hash(fullPassword);
-    
-        if (fullHash.equals(hash)) {
-            found = true;
-            password = prefix;
-            saltFound = salt;
-        } else if (prefix.length() < CHARSET.length) {
-            for (int i = start; i < end; i++) {
-                search(start, end, prefix + CHARSET[i]);
+            if (fullHash.equals(hash)) {
+                found = true;
+                password = prefix;
+                saltFound = salt;
+            } else if (prefix.length() < CHARSET.length) {
+                for (int i = start; i < end; i++) {
+                    search(start, end, prefix + CHARSET[i]);
+                }
             }
         }
+    
+
+    
+
     }
     private static String hash(String input) {
         try {
