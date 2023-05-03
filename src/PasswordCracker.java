@@ -16,11 +16,11 @@ public class PasswordCracker {
     private static String password;
     private static String saltFound;
 
-    public PasswordCracker(ArrayList<> lista) {
-        this.algorithm = lista.get(0);
-        this.hash = lista.get(1);
-        this.salt = lista.get(2);
-        this.numThreads = lista.get(3);
+    public PasswordCracker(String algorithm, String hash, String salt, int numThreads) {
+        this.algorithm = algorithm;
+        this.hash = hash;
+        this.salt = salt;
+        this.numThreads = numThreads;
     }
 
 

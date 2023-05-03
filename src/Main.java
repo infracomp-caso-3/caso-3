@@ -3,7 +3,6 @@ import decrypter.Decrypter;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<> lista = new ArrayList()<>;
         Scanner reqs = new Scanner(System.in);
         System.out.println("Que algoritmo quieres utilizar? (SHA256/SHA512)");
         String algorithm = reqs.nextLine();
@@ -16,11 +15,8 @@ public class Main {
 
         System.out.println("Cuál código criptografico vas a utilizar?");
         String c = reqs.nextLine();
-        lista.add(algorithm);
-        lista.add(salt);
-        lista.add(threads);
-        lista.add(c);
-        PasswordCracker pc = new PasswordCracker(lista);
+
+        PasswordCracker pc = new PasswordCracker(algorithm, c, salt, threads);
         pc.iniciar();
 
     }
