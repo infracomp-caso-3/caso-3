@@ -15,6 +15,12 @@ public class Main {
 
         System.out.println("Cuál código criptografico vas a utilizar?");
         String c = reqs.nextLine();
+       
+        if(algorithm.equals("SHA256")){
+            algorithm = "SHA-256";
+        }else if(algorithm.equals("SHA512")){
+            algorithm = "SHA-512";
+        }
 
         PasswordCracker pc = new PasswordCracker(algorithm, c, salt, threads);
         pc.iniciar();
