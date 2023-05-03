@@ -64,7 +64,7 @@ public class PasswordCracker {
             return;
         }
     
-        if (prefix.length() == 7) {
+        if (prefix.length() <= 7) {
             String fullPassword = prefix + salt;
             String fullHash = hash(fullPassword);
             if (fullHash.equals(hash)) {
