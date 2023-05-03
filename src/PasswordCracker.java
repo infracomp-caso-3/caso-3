@@ -2,7 +2,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class HashSearch {
+public class PasswordCracker {
     private static final String ALGORITHM_SHA256 = "SHA-256";
     private static final String ALGORITHM_SHA512 = "SHA-512";
     private static final char[] CHARSET = "abcdefghijklmnopqrstuvwxyz".toCharArray();
@@ -16,7 +16,7 @@ public class HashSearch {
     private static String password;
     private static String saltFound;
 
-    public HashSearch(ArrayList<> lista) {
+    public PasswordCracker(ArrayList<> lista) {
         this.algorithm = lista.get(0);
         this.hash = lista.get(1);
         this.salt = lista.get(2);

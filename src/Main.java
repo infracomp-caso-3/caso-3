@@ -20,7 +20,7 @@ public class Main {
         lista.add(salt);
         lista.add(threads);
         lista.add(c);
-        PasswordCrakcer pc = new PasswordCracker(lista);
+        PasswordCracker pc = new PasswordCracker(lista);
 
     }
 }
