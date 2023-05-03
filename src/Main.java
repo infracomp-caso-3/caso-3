@@ -21,6 +21,7 @@ public class Main {
         lista.add(threads);
         lista.add(c);
         PasswordCracker pc = new PasswordCracker(lista);
+        pc.iniciar();
 
     }
 }
