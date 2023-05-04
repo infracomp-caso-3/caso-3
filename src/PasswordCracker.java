@@ -83,7 +83,7 @@ public class PasswordCracker {
         }
         return "";
     }
-    
+
     private static String hash(String input) {
         try {
             MessageDigest digest;
