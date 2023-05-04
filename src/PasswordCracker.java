@@ -59,26 +59,29 @@ public class PasswordCracker {
         }
     }
 
-    private static void search(int start, int end, String prefix) {
+    private static String search(int start, int end, String prefix) {
         if (found) {
-            return;
+            return prefix;
         }
-    
-        if (prefix.length() > 0 && prefix.length() <= 7) {
-            String fullPassword = prefix + salt;
-            String fullHash = hash(fullPassword);
-            if (fullHash.equals(hash)) {
-                found = true;
-                password = prefix;
-                saltFound = salt;
-            }
-        }
-    
+
         if (prefix.length() < 7) {
+            if (prefix.length() > 0 && prefix.length() <= 7) {
+                String fullPassword = prefix + salt;
+                String fullHash = hash(fullPassword);
+                boolean isSame = fullHash.equals(hash);
+                if (isSame) {
+                    found = true;
+                    password = prefix;
+                    saltFound = salt;
+
+                    return password;
+                }
+            }
             for (int i = start; i < end; i++) {
                 search(start, end, prefix + CHARSET[i]);
             }
         }
+        return "";
     }
     
     private static String hash(String input) {
